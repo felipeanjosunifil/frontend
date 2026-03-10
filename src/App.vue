@@ -1,4 +1,5 @@
 <script setup>
+import Header from './components/Header.vue';
 import MeuComponente from './components/MeuComponente.vue';
 import { ref } from 'vue';
 
@@ -13,9 +14,7 @@ function onValorMaximo(atingiuValorMaximo) {
 
 </script>
 <template>
-  <h3 v-show="valorMaximoAtingido"> Valor máximo atingido </h3>
-  <MeuComponente :maximo="valorMaximo" @atingiu-valor-maximo="onValorMaximo"><!-- Parâmetros passados para as propriedades(props) do Componente customizado -->
-  </MeuComponente>
+  <Header></Header>
 </template>
 
 <style scoped>
