@@ -42,7 +42,8 @@
 
 /* Ícone da esquerda */
 .icon {
-  height: 35px;
+  height: 4vh;
+  width: 2vw;
 }
 
 /* Título */

@@ -1,13 +1,15 @@
 <template>
+    <Header></Header>
     <div class="tela-inicial">
         <h2> Tela inicial - Produtos </h2>
         <div class="produtos">
-            <ProdutoItem class="produto-item" v-for="i in 10" :produto="produto"></ProdutoItem>
+            <ProdutoItem class="produto-item" v-for="i in 5" :produto="produto"></ProdutoItem>
         </div>
-
+        <RouterLink to="/about"> Ir para página sobre </RouterLink>
     </div>
 </template>
 <script setup>
+import Header from '@/components/Header.vue';
 import ProdutoItem from '@/components/produtos/ProdutoItem.vue';
 
 const produto = {

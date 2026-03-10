@@ -3,7 +3,7 @@ import TelaInicial from './views/TelaInicial.vue';
 
 </script>
 <template>
-  <TelaInicial></TelaInicial>  
+  <RouterView></RouterView>
 </template>
 
 <style scoped>
