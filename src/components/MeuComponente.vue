@@ -1,17 +1,20 @@
 <template>
-    <div >
+    <div>
         <h1> {{ titulo }} </h1>
 
         <p> {{ contador }} </p>
 
-        <p v-if="contador < 10"> O contador é menor que 10 </p><!-- condição if que verifica se contador é menor que 10 -->
+        <p v-if="contador < 10"> O contador é menor que 10 </p>
+        <!-- condição if que verifica se contador é menor que 10 -->
         <p v-else> O contador é igual ou maior que 10 </p>
 
-        <a :href="link" target="_blank"> Clique aqui para ir para o Google </a> <!-- v-bind para passar link dinâmico para atributo href -->
+        <a :href="link" target="_blank"> Clique aqui para ir para o Google </a>
+        <!-- v-bind para passar link dinâmico para atributo href -->
 
         <button @click="onButtonClick">Aumentar contador</button> <!-- Escuta evento de clique do botão -->
 
-        <div :class="estiloContador" @mouseenter="onMouseEnter" @mouseleave="onMouseOut"><!-- estilo diâmico @mouseenter escuta evento de mouse em cima da div @mouseleave quando mouse sai-->
+        <div :class="estiloContador" @mouseenter="onMouseEnter" @mouseleave="onMouseOut">
+            <!-- estilo diâmico @mouseenter escuta evento de mouse em cima da div @mouseleave quando mouse sai-->
             <p v-for="i in contador"> {{ i }} </p> <!-- laço for para parágrafo -->
         </div>
     </div>
@@ -26,22 +29,20 @@ const diasDaSemana = ref(["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"])
 const link = ref('https://google.com')
 const estiloContador = ref('contador')
 
-//Define uma propriedade que pode ser recebida por um componente externo.
 const props = defineProps({
-    maximo: Number
+    valorMaximo: Number
 })
 
-//Declara um evento que poderá ser emitido por este componente e escutado por um componente externo.
-const emit = defineEmits(['atingiuValorMaximo'])
+const emits = defineEmits(['atingiuValorMaximo'])
 
 function onButtonClick() {
 
-    if(contador.value < props.maximo) {
+    if(contador.value < props.valorMaximo) {
         contador.value++
     }
 
-    if (contador.value == props.maximo) {
-        emit('atingiuValorMaximo', true)//Momento em que o evento é emitido
+    if(contador.value == props.valorMaximo) {
+        emits('atingiuValorMaximo', true)
     }
 
     if (contador.value > 10) {
@@ -72,5 +73,4 @@ function onMouseOut() {
 .contador-verde {
     background-color: green;
 }
-
 </style>

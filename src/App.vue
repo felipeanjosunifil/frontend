@@ -2,20 +2,21 @@
 import MeuComponente from './components/MeuComponente.vue';
 import { ref } from 'vue';
 
-const valorMaximo = ref(12)
-const valorMaximoAtingido = ref(false)
+const valorMaximo = ref(8)
+const mostrarAviso = ref(false)
 
-function onValorMaximo(atingiuValorMaximo) {
-  if(atingiuValorMaximo) {
-    valorMaximoAtingido.value = true
-  }
+function onAtingiuValorMaximo(atingiu) {
+//  if (atingiu) {
+//    mostrarAviso.value = true
+//  }
+  
+  mostrarAviso.value = atingiu
 }
 
 </script>
 <template>
-  <h3 v-show="valorMaximoAtingido"> Valor máximo atingido </h3>
-  <MeuComponente :maximo="valorMaximo" @atingiu-valor-maximo="onValorMaximo"><!-- Parâmetros passados para as propriedades(props) do Componente customizado -->
-  </MeuComponente>
+  <h2 v-show="mostrarAviso"> O valor máximo foi atingido </h2>
+  <MeuComponente :valor-maximo="valorMaximo" @atingiu-valor-maximo="onAtingiuValorMaximo"></MeuComponente>
 </template>
 
 <style scoped>
