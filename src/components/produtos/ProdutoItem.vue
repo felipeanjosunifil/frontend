@@ -10,7 +10,7 @@
             </div>
         </div>
         <div style="width: 30%;">
-            <img src="@/assets/bone.jpeg" :alt="produto.descricao">
+            <img :src="produto.imgSrc" :alt="produto.descricao">
         </div>
     </div>
 </template>
@@ -24,6 +24,7 @@ const props = defineProps({
         imgSrc: String
     }
 })
+
 
 </script>
 <style>
@@ -55,7 +56,7 @@ const props = defineProps({
 }
 
 img {
-    width:8vw;
+    width: 8vw;
     height: 10vh;
 }
 </style>

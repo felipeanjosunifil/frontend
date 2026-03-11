@@ -1,7 +1,7 @@
 <template>
     <header class="header">
   <div class="header-left">
-    <img src="@/assets/shop.png" class="icon" alt="Shop">
+    <img src="/public/shop.png" class="icon" alt="Shop">
   </div>
 
   <div class="header-center">
