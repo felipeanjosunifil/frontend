@@ -28,7 +28,9 @@ const estiloContador = ref('contador')
 
 //Define uma propriedade que pode ser recebida por um componente externo.
 const props = defineProps({
-    maximo: Number
+    maximo: Number,
+    texto: String,
+    atingiuMaximo: Boolean
 })
 
 //Declara um evento que poderá ser emitido por este componente e escutado por um componente externo.
