@@ -11,35 +11,24 @@
 <script setup>
 import ProdutoItem from '@/components/produtos/ProdutoItem.vue';
 import { useRouter } from 'vue-router';
+import { ref } from 'vue';
+import api from '@/api'
 
 const router = useRouter()
+const produtos = ref([])
 
-const produtos = [
-    {
-        "nome": "Camiseta",
-        "descricao": "Camiseta preta de algodão",
-        "preco": 149.99,
-        "imgSrc": "camiseta preta.webp"
-    },
-    {
-        "nome": "Bone",
-        "descricao": "Bné estiloso",
-        "preco": 80.99,
-        "imgSrc": "bone.jpeg"
-    },
-    {
-        "nome": "Tenis",
-        "descricao": "Tenis confortável",
-        "preco": 220.99,
-        "imgSrc": "tenis.jpg"
-    },
-    {
-        "nome": "Placa de vídeo",
-        "descricao": "Nvidia RTX5090",
-        "preco": 50000.99,
-        "imgSrc": "rtx5090.jpeg"
-    }
-]
+api.get('/produtos').then((response) => {
+    console.log('Sucesso!')
+    console.log(response.data)
+    produtos.value = response.data
+})
+    .catch((error) => {
+        console.log('Erro!')
+        console.log(error)
+    })
+    .finally(() => {
+        console.log('Executou!')
+    })
 
 function onItemClick() {
     router.push('/about')
