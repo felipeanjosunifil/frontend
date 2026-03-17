@@ -14,21 +14,20 @@ import { useRouter } from 'vue-router';
 import { ref } from 'vue';
 import api from '@/api'
 
-const router = useRouter()
 const produtos = ref([])
 
 api.get('/produtos').then((response) => {
-    console.log('Sucesso!')
     console.log(response.data)
     produtos.value = response.data
 })
-    .catch((error) => {
-        console.log('Erro!')
-        console.log(error)
-    })
-    .finally(() => {
-        console.log('Executou!')
-    })
+.catch((error) => {
+    console.log(error)
+})
+.finally(() => {
+
+})
+
+const router = useRouter()
 
 function onItemClick() {
     router.push('/about')
