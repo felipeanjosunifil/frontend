@@ -1,11 +1,10 @@
 import { createRouter, createWebHistory } from "vue-router";
-
-import AboutView from "@/views/AboutView.vue";
 import PaginaInicialView from "@/views/PaginaInicialView.vue";
+import AboutView from "@/views/AboutView.vue";
 
 const routes = [
-    {path:'/', component:  PaginaInicialView},
-    {path:'/about', component: AboutView}
+    { path: '/', component: PaginaInicialView },
+    { path: '/about', component: AboutView },
 ]
 
 const router = createRouter({
@@ -13,4 +12,4 @@ const router = createRouter({
     routes
 })
 
-export default router;
+export default router
